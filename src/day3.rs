@@ -1,4 +1,3 @@
-use std::collections::HashMap;
 use std::collections::HashSet;
 use std::fs::File;
 use std::io::{self, BufRead, BufReader};
@@ -10,33 +9,33 @@ use std::num::Wrapping;
 //         .lines()
 //         .filter_map(Result::ok)
 //         .map(|line| {
-//             let mut newLine: Vec<i32> = Vec::new();
+//             let mut new_line: Vec<i32> = Vec::new();
 //             let mut num: u32 = 0;
-//             let mut numLen = 0;
+//             let mut num_len = 0;
 //             for c in line.chars() {
 //                 if c.is_digit(10) {
 //                     num *= 10;
 //                     num += c.to_digit(10).unwrap();
-//                     numLen += 1;
+//                     num_len += 1;
 //                 } else {
-//                     if numLen > 0 {
-//                         for _ in 0..numLen {
-//                             newLine.push(num as i32);
+//                     if num_len > 0 {
+//                         for _ in 0..num_len {
+//                             new_line.push(num as i32);
 //                         }
-//                         numLen = 0;
+//                         num_len = 0;
 //                         num = 0;
 //                     }
 //                     if c == '*' {
-//                         newLine.push(-1);
+//                         new_line.push(-1);
 //                     } else {
-//                         newLine.push(0);
+//                         new_line.push(0);
 //                     }
 //                 }
 //             }
-//             for _ in 0..numLen {
-//                 newLine.push(num as i32);
+//             for _ in 0..num_len {
+//                 new_line.push(num as i32);
 //             }
-//             newLine
+//             new_line
 //         })
 //         .collect();
 
@@ -197,7 +196,7 @@ use std::num::Wrapping;
 //     let mut starN = 0;
 //     let mut lines: Vec<Vec<char>> = Vec::new();
 //     for (y, line) in reader.lines().enumerate() {
-//         let mut newLine: Vec<char> = Vec::new();
+//         let mut new_line: Vec<char> = Vec::new();
 //         match line {
 //             Ok(line_content) => {
 //                 for (x, c) in line_content.chars().enumerate() {
@@ -212,9 +211,9 @@ use std::num::Wrapping;
 //                         map.insert(10000 * y as u32 + (x + 1) as u32, starN);
 //                         starN += 1;
 //                     }
-//                     newLine.push(c);
+//                     new_line.push(c);
 //                 }
-//                 lines.push(newLine);
+//                 lines.push(new_line);
 //             }
 //             Err(err) => eprintln!("Error reading line: {}", err),
 //         }
@@ -250,39 +249,39 @@ fn part2(reader: BufReader<File>) -> u32 {
         .lines()
         .map_while(Result::ok)
         .map(|line| {
-            let mut newLine: Vec<(i32, u8)> = Vec::new();
+            let mut new_line: Vec<(i32, u8)> = Vec::new();
             let mut num: i32 = 0;
-            let mut numLen = 0;
+            let mut num_len = 0;
             for c in line.chars() {
                 if c.is_ascii_digit() {
                     num *= 10;
                     num += c.to_digit(10).unwrap() as i32;
-                    numLen += 1;
+                    num_len += 1;
                 } else {
-                    if numLen > 0 {
-                        for _ in 0..numLen {
-                            newLine.push((num, id));
+                    if num_len > 0 {
+                        for _ in 0..num_len {
+                            new_line.push((num, id));
                         }
                         id = (Wrapping(id) + Wrapping(1)).0;
-                        numLen = 0;
+                        num_len = 0;
                         num = 0;
                     }
                     if c == '*' {
-                        newLine.push((-1, 0));
+                        new_line.push((-1, 0));
                     } else {
-                        newLine.push((0, 0));
+                        new_line.push((0, 0));
                     }
                 }
             }
-            for _ in 0..numLen {
-                newLine.push((num, id));
+            for _ in 0..num_len {
+                new_line.push((num, id));
             }
             id = (Wrapping(id) + Wrapping(1)).0;
-            newLine
+            new_line
         })
         .collect();
-    for (y, line) in lines.iter().enumerate() {
-        for (x, (curr, _)) in line.iter().enumerate() {
+    for (_, line) in lines.iter().enumerate() {
+        for (_, (curr, _)) in line.iter().enumerate() {
             print!("{}\t", curr);
         }
         println!();

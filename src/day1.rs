@@ -29,9 +29,9 @@ fn read_file_lines2(file_path: &str) -> io::Result<u32> {
                         }
                     } else {
                         let mut found;
-                        for (k, numString) in num_strings.iter().enumerate() {
+                        for (k, num_string) in num_strings.iter().enumerate() {
                             found = true;
-                            for (j, char) in numString.chars().enumerate() {
+                            for (j, char) in num_string.chars().enumerate() {
                                 c = line_content.chars().nth(i).unwrap();
                                 i += 1;
                                 print!(" i:{} {} == {}", i, char, c);
@@ -40,7 +40,7 @@ fn read_file_lines2(file_path: &str) -> io::Result<u32> {
                                     found = false;
                                     break;
                                 } else if i >= line_content.len() {
-                                    found = j + 1 == numString.len();
+                                    found = j + 1 == num_string.len();
                                     break;
                                 }
                             }
