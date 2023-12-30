@@ -9,9 +9,10 @@ mod day6;
 mod day7;
 mod day8;
 mod day9;
+mod day10;
 
 fn main() {
-    let mut day = 1;
+    let mut day = 10;
     let mut run_part_2 = false;
     let args: Vec<String> = env::args().collect();
 
@@ -39,6 +40,8 @@ fn main() {
         6 => day6::run(run_part_2),
         7 => day7::run(run_part_2),
         8 => day8::run(run_part_2),
+        9 => day9::run(run_part_2),
+        10 => day10::run(run_part_2),
         _ => {}
     }
 }
