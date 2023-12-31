@@ -1,9 +1,6 @@
-use std::collections::btree_map::Keys;
 use std::collections::HashSet;
 use std::fs::File;
 use std::io::{self, BufRead, BufReader};
-
-use num::traits::ops::checked;
 
 fn part2(reader: BufReader<File>) -> u32 {
     let mut curr: (usize, usize) = (0, 0);
