@@ -102,7 +102,7 @@ fn part1(reader: BufReader<File>) -> u32 {
 
 fn part2(reader: BufReader<File>) -> u64 {
     let mut sum: u64 = 0;
-    let mut cache: HashMap<(u32, u32, u32), u64> = HashMap::new();
+    let cache: HashMap<(u32, u32, u32), u64> = HashMap::new();
     fn loob(
         cache: &mut HashMap<(u32, u32, u32), u64>,
         springs: &Vec<char>,

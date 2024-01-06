@@ -7,6 +7,7 @@ fn part2(reader: BufReader<File>) -> i64 {
         let mut new_line: Vec<char> = Vec::new();
         let mut found = false;
         for (x, c) in line.unwrap().chars().enumerate() {
+            println!("y{} x{}", y, x);
             if c == '#' {
                 found = true;
             }
@@ -61,6 +62,7 @@ fn part1(reader: BufReader<File>) -> i32 {
         let mut new_line: Vec<char> = Vec::new();
         let mut found = false;
         for (x, c) in line.unwrap().chars().enumerate() {
+            println!("y{} x{}", y, x);
             if c == '#' {
                 found = true;
             }

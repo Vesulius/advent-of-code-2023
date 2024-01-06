@@ -12,10 +12,11 @@ mod day9;
 mod day10;
 mod day11;
 mod day12;
+mod day13;
 
 fn main() {
-    let mut day = 10;
-    let mut run_part_2 = false;
+    let mut day = 13;
+    let mut run_part_2 = true;
     let args: Vec<String> = env::args().collect();
 
     let mut it = args.iter();
@@ -46,6 +47,7 @@ fn main() {
         10 => day10::run(run_part_2),
         11 => day11::run(run_part_2),
         12 => day12::run(run_part_2),
+        13 => day13::run(run_part_2),
         _ => {}
     }
 }
