@@ -14,6 +14,7 @@ mod day11;
 mod day12;
 mod day13;
 mod day14;
+mod day15;
 
 fn main() {
     let mut day = 14;
@@ -50,6 +51,7 @@ fn main() {
         12 => day12::run(run_part_2),
         13 => day13::run(run_part_2),
         14 => day14::run(run_part_2),
+        15 => day15::run(run_part_2),
         _ => {}
     }
 }
