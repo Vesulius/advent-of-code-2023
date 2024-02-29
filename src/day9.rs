@@ -80,14 +80,6 @@ fn part1(reader: BufReader<File>) -> i32 {
     sum
 }
 
-// 10  13  16  21  30  45  68
-// 3   3   5   9  15  23
-// 0   2   4   6   8
-// 2   2   2   2
-// 0   0   0
-
-// 0   0   0   2   8  23   68
-
 pub fn run(run_part_2: bool) {
     let file = File::open("./input/day9.txt").unwrap();
     let reader = io::BufReader::new(file);

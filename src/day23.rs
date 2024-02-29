@@ -239,17 +239,6 @@ fn part2(reader: BufReader<File>) -> i32 {
             } else if true {
                 break;
             }
-            // for w in &weights {
-            //     for n in w {
-            //         if n == &-1 {
-            //             print!("# ");
-            //         } else {
-            //             print!("{} ", n);
-            //         }
-            //     }
-            //     println!();
-            // }
-            // println!();
         }
     }
     for w in &weights {
@@ -262,87 +251,7 @@ fn part2(reader: BufReader<File>) -> i32 {
         }
         println!();
     }
-    // println!("start {:?} end {:?}", start, end);
-    // let width = map[0].len() as i32;
-    // let height = map.len() as i32;
-    // let mut pruned: HashMap<(i32, i32), Vec<(i32, i32, u32)>> = HashMap::new();
-    // let mut next_path: VecDeque<(i32, i32, u32, From)> = VecDeque::new();
-    // next_path.push_back((start.0, start.1, 0, From::Above));
-    // let mut curr_start_point: (i32, i32) = (start.0, start.1);
-    // let mut visited = vec![vec![false; width as usize]; height as usize];
-    // while let Some((y, x, len, from)) = next_path.pop_front() {
-    //     let mut next_positions = Vec::new();
-    //     let directions = match from {
-    //         From::Below => vec![
-    //             ((0, 1), From::Left),
-    //             ((0, -1), From::Right),
-    //             ((-1, 0), From::Below),
-    //         ],
-    //         From::Above => vec![
-    //             ((0, 1), From::Left),
-    //             ((0, -1), From::Right),
-    //             ((1, 0), From::Above),
-    //         ],
-    //         From::Right => vec![
-    //             ((0, -1), From::Right),
-    //             ((1, 0), From::Above),
-    //             ((-1, 0), From::Below),
-    //         ],
-    //         From::Left => vec![
-    //             ((0, 1), From::Left),
-    //             ((1, 0), From::Above),
-    //             ((-1, 0), From::Below),
-    //         ],
-    //     };
-    //     for (dir, from) in directions {
-    //         let new_y = y + dir.0;
-    //         let new_x = x + dir.1;
-    //         if new_y < 0
-    //             || new_x < 0
-    //             || new_x >= width
-    //             || new_y >= height
-    //             || map[new_y as usize][new_x as usize] == '#'
-    //             || (visited[new_y as usize][new_x as usize] && pruned.contains_key(&(new_y, new_x)))
-    //         {
-    //             continue;
-    //         }
-    //         next_positions.push((new_y, new_x, from));
-    //     }
-    //     if next_positions.len() == 1 {
-    //         println!("found one");
-    //         let (new_y, new_x, from) = next_positions[0];
-    //         if new_y == end.0 && new_x == end.1 {
-    //             pruned
-    //                 .entry(curr_start_point)
-    //                 .and_modify(|v| v.push((y, x, len + 1)))
-    //                 .or_insert(vec![(y, x, len + 1); 1]);
-    //             pruned
-    //                 .entry((y, x))
-    //                 .and_modify(|v| v.push((curr_start_point.0, curr_start_point.1, len + 1)))
-    //                 .or_insert(vec![(curr_start_point.0, curr_start_point.1, len + 1); 1]);
-    //         }
-    //         next_path.push_front((new_y, new_x, len + 1, from));
-    //     } else if next_positions.len() > 1 {
-    //         println!("found multiple y{} x{}", y, x);
-    //         let skip_this = pruned.contains_key(&(y, x));
-    //         pruned
-    //             .entry(curr_start_point)
-    //             .and_modify(|v| v.push((y, x, len + 1)))
-    //             .or_insert(vec![(y, x, len + 1); 1]);
-    //         pruned
-    //             .entry((y, x))
-    //             .and_modify(|v| v.push((curr_start_point.0, curr_start_point.1, len + 1)))
-    //             .or_insert(vec![(curr_start_point.0, curr_start_point.1, len + 1); 1]);
-    //         if skip_this {
-    //             continue;
-    //         }
-    //         curr_start_point = (y, x);
-    //         for (new_y, new_x, from) in next_positions {
-    //             next_path.push_back((new_y, new_x, len + 1, from));
-    //         }
-    //     } else if false {
-    //     }
-    // }
+   
     
     fn new_path(
         pos: (i32, i32),
@@ -376,69 +285,6 @@ fn part2(reader: BufReader<File>) -> i32 {
     }
 
     new_path(start, &pruned, Vec::new(), 0, 0, &end)
-
-    // rip, too slow
-    // fn new_path(
-    //     y: usize,
-    //     x: usize,
-    //     map: &Vec<Vec<char>>,
-    //     mut weights: Vec<Vec<u32>>,
-    //     end: &(usize, usize),
-    // ) -> u32 {
-    //     let mut y = y;
-    //     let mut x = x;
-    //     let height = map.len() as i32;
-    //     let width = map[0].len() as i32;
-    //     let mut longest_route = 0;
-    //     loop {
-    //         let mut next_positions = Vec::new();
-    //         for dir in [(1, 0), (-1, 0), (0, 1), (0, -1)] {
-    //             let new_y = y as i32 + dir.0;
-    //             let new_x = x as i32 + dir.1;
-    //             if new_y < 0
-    //                 || new_x < 0
-    //                 || new_x >= width
-    //                 || new_y >= height
-    //                 || map[new_y as usize][new_x as usize] == '#'
-    //                 || weights[new_y as usize][new_x as usize] != 0
-    //             {
-    //                 continue;
-    //             }
-    //             next_positions.push((new_y as usize, new_x as usize));
-    //         }
-    //         let curr_weight = weights[y][x];
-    //         if next_positions.is_empty() {
-    //             return longest_route;
-    //         } else {
-    //             for i in 0..next_positions.len() - 1 {
-    //                 let (new_y, new_x) = next_positions[i];
-    //                 if new_y == end.0 && new_x == end.1 {
-    //                     return curr_weight + 1;
-    //                 }
-    //                 let mut weights_clone = weights.clone();
-    //                 weights_clone[new_y][new_x] = curr_weight + 1;
-    //                 longest_route = max(
-    //                     new_path(new_y, new_x, map, weights_clone, end),
-    //                     longest_route,
-    //                 );
-    //             }
-    //             let (new_y, new_x) = next_positions[next_positions.len() - 1];
-    //             if new_y == end.0 && new_x == end.1 {
-    //                 return max(curr_weight + 1, longest_route);
-    //             }
-    //             weights[new_y][new_x] = curr_weight + 1;
-    //             y = new_y;
-    //             x = new_x;
-    //         }
-    //     }
-    // }
-
-    // let height = map.len();
-    // let width = map[0].len();
-    // let mut weights = vec![vec![0; width]; height];
-    // weights[start.0][start.1] = 1;
-
-    // new_path(start.0, start.1, &map, weights, &end) - 1
 }
 
 pub fn run(run_part_2: bool) {

@@ -1,6 +1,4 @@
 use itertools::Itertools;
-use num::Float;
-use std::cmp::max;
 use std::fmt::Debug;
 use std::fs::File;
 use std::io::{self, BufRead, BufReader};
@@ -101,10 +99,6 @@ fn part2(reader: BufReader<File>) -> f64 {
         })
         .collect_vec();
 
-    // println!(
-    //     "speed \ns1 {:?} s2 {:?} \nh1 {:?} h2 {:?}",
-    //     h1.speed, h2.speed, h1.dir, h2.dir
-    // );
     let mut x_velos: Vec<f64> = Vec::new();
     let mut y_velos: Vec<f64> = Vec::new();
     let mut z_velos: Vec<f64> = Vec::new();

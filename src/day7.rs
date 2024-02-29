@@ -83,27 +83,6 @@ fn rank_hands(h1: &str, h2: &str) -> Ordering {
 }
 
 fn part1(reader: BufReader<File>) -> u32 {
-    // println!("7:{}", hand_str("55555"));
-    // println!("7:{}", hand_str("TTTTT"));
-    // println!("7:{}", hand_str("QQQQQ"));
-    // println!("6:{}", hand_str("55556"));
-    // println!("6:{}", hand_str("55655"));
-    // println!("5:{}", hand_str("44455"));
-    // println!("5:{}", hand_str("45455"));
-    // println!("5:{}", hand_str("QJJJQ"));
-    // println!("4:{}", hand_str("44456"));
-    // println!("4:{}", hand_str("33432"));
-    // println!("4:{}", hand_str("43337"));
-    // println!("3:{}", hand_str("44233"));
-    // println!("3:{}", hand_str("34234"));
-    // println!("2:{}", hand_str("33JQK"));
-    // println!("2:{}", hand_str("Q3JQK"));
-    // println!("1:{}", hand_str("23JQK"));
-    // println!("1:{}", hand_str("93JQK"));
-    // println!("ge {:?}", rank_hands("AAAAA", "23456"));
-    // println!("ge {:?}", rank_hands("2222A", "2222K"));
-    // println!("ge {:?}", rank_hands("2422A", "2322K"));
-
     let mut hands: Vec<(String, u32)> = reader
         .lines()
         .map_while(Result::ok)

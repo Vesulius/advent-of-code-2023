@@ -60,19 +60,6 @@ fn part2(reader: BufReader<File>) -> usize {
         if remains == 0 {
             break;
         }
-        // if round < 20 {
-        //     println!();
-        //     for l in lines.iter() {
-        //         for c in l.iter() {
-        //             match c {
-        //                 2 => print!("#"),
-        //                 1 => print!("O"),
-        //                 _ => print!("."),
-        //             }
-        //         }
-        //         println!();
-        //     }
-        // }
         for y in 0..height {
             for x in 0..width {
                 if lines[y][x] == 1 {

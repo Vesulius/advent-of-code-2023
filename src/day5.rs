@@ -132,4 +132,3 @@ pub fn run(run_part_2: bool) {
         println!("ANSWER: {}", part1(reader));
     }
 }
-// 24261545

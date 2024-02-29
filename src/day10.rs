@@ -206,48 +206,6 @@ fn part2(reader: BufReader<File>) -> u32 {
         }
     }
     println!("space {}", space);
-    // let mut checked: HashSet<(i32, i32)> = HashSet::new();
-
-    // fn loob(
-    //     nates: (i32, i32),
-    //     checked: &mut HashSet<(i32, i32)>,
-    //     set: &HashSet<(usize, usize)>,
-    //     lines_height: i32,
-    //     lines_width: i32,
-    // ) {
-    //     // println!("new {:?}", nates);
-    //     for y in -1..2 {
-    //         for x in -1..2 {
-    //             let loc_y: i32 = nates.0 + y;
-    //             let loc_x: i32 = nates.1 + x;
-    //             // println!("y{} x{}", loc_y, loc_x);
-    //             if (y == 0 && x == 0)
-    //                 || loc_y < 0
-    //                 || loc_x < 0
-    //                 || loc_y >= lines_height
-    //                 || loc_x >= lines_width
-    //                 || set.contains(&(loc_y as usize, loc_x as usize))
-    //                 || checked.contains(&(loc_y, loc_x))
-    //             {
-    //                 continue;
-    //             } else {
-    //                 // println!("ADDED");
-    //                 checked.insert((loc_y, loc_x));
-    //                 loob((loc_y, loc_x), checked, set, lines_height, lines_width)
-    //             }
-    //         }
-    //     }
-    // }
-
-    // loob(
-    //     (0, 0),
-    //     &mut checked,
-    //     &set,
-    //     lines.len() as i32,
-    //     lines[0].len() as i32,
-    // );
-
-    // println!("checked len {}", checked.len());
     println!("counter {}", counter);
 
     space

@@ -72,19 +72,10 @@ fn part1(reader: BufReader<File>) -> u32 {
         if (n == 0 && next != nums.len())
             || n > 0 && (next == nums.len() || nums[next] != n || next != nums.len() - 1)
         {
-            // println!( "BAD END n {}, next {} {}",
-            //     n,
-            //     next,
-            //     choises.iter().collect::<String>()
-            // );
+ 
             return 0;
         }
-        // println!(
-        //     "GOOD END n {}, next {} {}",
-        //     n,
-        //     next,
-        //     choises.iter().collect::<String>()
-        // );
+
         1
     }
 
@@ -208,58 +199,6 @@ fn part2(reader: BufReader<File>) -> u64 {
     });
     sum
 }
-
-// fn part2(reader: BufReader<File>) -> u64 {
-//     let mut sum: u64 = 0;
-
-//     reader.lines().map_while(Result::ok).for_each(|line| {
-//         let parts: Vec<&str> = line.split_whitespace().collect();
-//         let mut springs: Vec<char> = parts[0].chars().collect();
-//         springs.push('.'); // remember to add . to end of all input lines, so we dont have to do end of loop checks
-//         let nums: Vec<u32> = parts[1].split(',').map(|n| n.parse().unwrap()).collect();
-//         println!("{}", line);
-
-//         let mut cac: Vec<u64> = vec![0; springs.len()];
-
-//         for y in 0..nums.len() {
-//             let mut range = (0, 0);
-//             for x in 0..springs.len() {
-//                 match springs[x] {
-//                     '.' => {
-//                         if range.1 > 0 {
-//                             if range.0 < nums[y] {
-//                                 cac[x] += 1;
-//                                 break;
-//                             } else {
-//                                 break;
-//                             }
-//                         }
-//                     }
-//                     '#' => {
-//                         range.0 += 1;
-//                         range.1 += 1;
-//                     }
-//                     '?' => {
-//                         if  > 0 {
-//                             if n == nums[y] {
-//                                 cac[y] += 1;
-//                             } else {
-//                                 n += 1;
-//                             }
-//                         }
-//                         range.1 += 1;
-//                     }
-//                     _ => panic!("found weird symbol"),
-//                 }
-//             }
-//         }
-
-//         let ret = cac[cac.len() - 1];
-//         println!("\ntotal: {}\n", ret);
-//         sum += ret;
-//     });
-//     sum
-// }
 
 pub fn run(run_part_2: bool) {
     let file = File::open("./input/day12.txt").unwrap();
