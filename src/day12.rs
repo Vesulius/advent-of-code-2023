@@ -262,7 +262,7 @@ fn part2(reader: BufReader<File>) -> u64 {
 // }
 
 pub fn run(run_part_2: bool) {
-    let file = File::open("/home/vesa/code/rust/adventOfCode/input/day12.txt").unwrap();
+    let file = File::open("./input/day12.txt").unwrap();
     let reader = io::BufReader::new(file);
     if run_part_2 {
         println!("ANSWER: {}", part2(reader));

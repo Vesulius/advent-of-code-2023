@@ -8,3 +8,5 @@ edition = "2021"
 [dependencies]
 num = "0.4"
 itertools = "0.10.0"
+priority-queue = "0.7.0"
+rand = "0.8"

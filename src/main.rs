@@ -17,6 +17,14 @@ mod day14;
 mod day15;
 mod day16;
 mod day17;
+mod day18;
+mod day19;
+mod day20;
+mod day21;
+mod day22;
+mod day23;
+mod day24;
+mod day25;
 
 fn main() {
     let mut day = 17;
@@ -56,6 +64,14 @@ fn main() {
         15 => day15::run(run_part_2),
         16 => day16::run(run_part_2),
         17 => day17::run(run_part_2),
+        18 => day18::run(run_part_2),
+        19 => day19::run(run_part_2),
+        20 => day20::run(run_part_2),
+        21 => day21::run(run_part_2),
+        22 => day22::run(run_part_2),
+        23 => day23::run(run_part_2),
+        24 => day24::run(run_part_2),
+        25 => day25::run(run_part_2),
         _ => {}
     }
 }
